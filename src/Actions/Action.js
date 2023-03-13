@@ -1,0 +1,15 @@
+export const Add=(item)=>{
+    console.log(item);
+return{
+    type:"ADD_CART",
+    payload:item
+}
+}
+
+export const DLT=(id)=>{
+    console.log(id);
+return{
+    type:"RMV_CART",
+    payload:id
+}
+}

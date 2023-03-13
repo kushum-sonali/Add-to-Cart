@@ -13,6 +13,7 @@
   }
   
   .iteamsdetails{
+   
       max-width: 800px;
       margin: auto;
       display: flex;
@@ -30,10 +31,17 @@
   
   .details{
       flex: .5;
+    
   };
   
   .rating{
       background-color: green;
+  }
+  .img1{
+    display: flex;
+    /* justify-content: center; */
+     height: 40vh;
+    width: 10vw;
   }
   
   @media (max-width:772px){
