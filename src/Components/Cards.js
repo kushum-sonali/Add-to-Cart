@@ -8,9 +8,7 @@ function Cards() {
   const [data,setData]=useState(Cardsdata);
   const dispatch= useDispatch();
   const send =(e)=>{
-// console.log(e);
 dispatch(Add(e));
-
   }
     return(
 <>

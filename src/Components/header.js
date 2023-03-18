@@ -2,7 +2,8 @@ import React from "react"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar'; 
-// import { useState } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Badge from '@mui/material/Badge';
 import { NavLink } from "react-router-dom";
@@ -13,7 +14,8 @@ import CardDetailes from "./CardDetailes";
 import { DLT } from "../Actions/Action";
 // import MenuItem from '@mui/material/MenuItem';
 function Header(){
-
+const [price,setPrice]=useState(0);
+console.log(price);
 const getdata=useSelector((state)=> state.cartreducer.carts);
 console.log(getdata);
 const dispatch =useDispatch();
@@ -29,6 +31,18 @@ const dispatch =useDispatch();
   const dlt = (id)=>{
     dispatch(DLT(id))
   }
+  const total=()=>{
+    let price = 0;
+    getdata.map((ele,k)=>{
+      price=ele.price + price;
+   
+    });
+       setPrice(price);
+  };
+   useEffect(()=>{
+    total();
+   },[total])
+
     return(
 <>
 <Navbar bg="dark" variant="dark" style={{height:"60px"}}>
@@ -90,7 +104,7 @@ const dispatch =useDispatch();
                     );
                   })
                 }
-                <p className='text-center'>Total : ₹300 </p>
+                <p className='text-center'>Total : ₹{price} </p>
               </tbody>
             </Table>
           </div>:

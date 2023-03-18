@@ -13,3 +13,11 @@ return{
     payload:id
 }
 }
+// remove individaual items
+export const REMOVE =(iteam)=>{
+    // console.log(iteam);
+return{
+    type:"RMV_ONE",
+    payload:iteam
+}
+}
